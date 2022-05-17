@@ -1,0 +1,44 @@
+super + Escape
+    pkill -USR1 -x sxhkd; \
+    notify-send "sxhkd restarted"
+
+super + Return
+    st
+
+#Rofi & dmenu
+
+super + space
+   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+   	
+super + p
+	dmenu_run
+
+super + r
+   st -e "ranger"
+   
+# super + g
+#	google-chrome-stable
+
+super + f
+	thunar
+
+super + e
+	geany
+	
+
+super + p
+ rofi -show
+
+# Application Keybindings
+
+super + w
+    firefox-esr
+
+# super + d 
+# discord
+
+ctrl + super + s
+    flameshot gui
+ 
+
+
