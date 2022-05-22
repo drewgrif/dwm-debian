@@ -1,2 +1,1 @@
-# dwm-debian
-# dwm-debian
+# NOT READY FOR PUBLIC 
