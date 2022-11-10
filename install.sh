@@ -23,7 +23,7 @@ sudo apt install -y lxappearance
 sudo apt install -y pcmanfm ranger
 
 # Network File Tools/System Events
-sudo apt install -y dialog mtools dosfstool avahi-daemon acpi acpid gvfs-backends
+sudo apt install -y dialog mtools avahi-daemon acpi acpid 
 
 sudo systemctl enable avahi-daemon
 sudo systemctl enable acpid
@@ -55,15 +55,15 @@ sudo apt install -y firefox-esr
 # Desktop background browser/handler 
 # feh --bg-fill /path/to/directory 
 # example if you want to use in autostart located in ~/.local/share/dwm/autostart.sh
-sudo apt install -y feh
-# sudo apt install -y nitrogen 
+# sudo apt install -y feh
+sudo apt install -y nitrogen 
 
 # Packages needed dwm after installation
-sudo apt install -y sxhkd picom numlockx rofi dunst libnotify-bin unzip geany scrot
+sudo apt install -y sxhkd picom numlockx rofi dunst libnotify-bin unzip mousepad scrot
 
 # Command line text editor -- nano preinstalled  -- I like micro but vim is great
 # sudo apt install -y micro
-sudo apt install -y vim
+sudo apt install -y neovim
 
 # Install fonts
 sudo apt install fonts-font-awesome fonts-ubuntu fonts-liberation2 fonts-liberation fonts-terminus 
@@ -72,9 +72,10 @@ sudo apt install fonts-font-awesome fonts-ubuntu fonts-liberation2 fonts-liberat
 xdg-user-dirs-update
 
 # Install Lightdm Console Display Manager
-sudo apt install -y lightdm lightdm-gtk-greeter-settings
+sudo apt install -y lightdm lightdm-gtk-greeter-settings slick-greeter
 sudo systemctl enable lightdm
-
+echo 'greeter-session=slick-greeter' >>  sudo tee -a /etc/lightdm/lightdm.conf
+echo 'greeter-hide-user=false' >>  sudo tee -a /etc/lightdm/lightdm.conf
 
 # XSessions and dwm.desktop
 if [[ ! -d /usr/share/xsessions ]]; then
@@ -92,21 +93,16 @@ Type=XSession
 EOF
 sudo cp ./temp /usr/share/xsessions/dwm.desktop;rm ./temp
 
-# move kitty
-mv ./kitty ~/.config/
 
 # Creating directories
 mkdir ~/.config/suckless
 
-# Moving autostart file to ~/.local/share/dwm directory
-cp ./.local/share/dwm/autostart.sh ~/.local/share/dwm/autostart.sh
-chmod +x ~/.local/share/dwm/autostart.sh
-
 # Move install directory, make, and install
+cd /tmp
 tools=( "dwm" "st" "slstatus" "slock" "tabbed" )
 for tool in ${tools[@]}
 do 
-	mv ./$tool ~/.config/suckless/
+	git clone git://git.suckless.org/$repo
 	cd ~/.config/suckless/$tool;make;sudo make clean install;cd ..
 done
 

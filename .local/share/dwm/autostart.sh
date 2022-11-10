@@ -8,7 +8,7 @@ picom -b  --config ~/.config/picom/picom.conf &
 volumeicon &
 dunst &
 
-# feh --bg-fill ~/Pictures/wallhaven-y8o51x_1920x1080.png &
+nitrogen --restore &
 
 #keybindings
 sxhkd -c ~/.config/suckless/dwm/sxhkd/sxhkdrc &
