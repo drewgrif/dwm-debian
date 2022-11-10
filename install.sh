@@ -4,7 +4,7 @@
 # Install packages after installing base Debian with no GUI
 
 # xorg display server installation
-sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput
+sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput xorg-dev
 
 # INCLUDES make,etc.
 sudo apt install -y build-essential 
@@ -97,12 +97,14 @@ sudo cp ./temp /usr/share/xsessions/dwm.desktop;rm ./temp
 # Creating directories
 mkdir ~/.config/suckless
 
+sudo apt install -y libx11-dev
+
 # Move install directory, make, and install
-cd /tmp
-tools=( "dwm" "st" "slstatus" "slock" "tabbed" )
+cd ~/.config/suckless
+tools=( "dwm" "dmenu" "st" "slstatus" "slock" "tabbed" )
 for tool in ${tools[@]}
 do 
-	git clone git://git.suckless.org/$repo
+	git clone git://git.suckless.org/$tool
 	cd ~/.config/suckless/$tool;make;sudo make clean install;cd ..
 done
 
