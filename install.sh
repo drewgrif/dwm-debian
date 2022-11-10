@@ -6,7 +6,7 @@
 # xorg display server installation
 sudo apt install -y xorg xbacklight xbindkeys xvkbd xinput
 
-# INCLUDE make from build-essential.
+# INCLUDES make,etc.
 sudo apt install -y build-essential 
 
 # Microcode for Intel/AMD 
