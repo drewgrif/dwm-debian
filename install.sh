@@ -23,7 +23,7 @@ sudo apt install -y lxappearance
 sudo apt install -y thunar
 
 # Network File Tools/System Events
-sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends xfce4-power-manager
+sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends xfce4-power-manager timeshift
 
 sudo systemctl enable avahi-daemon
 sudo systemctl enable acpid
