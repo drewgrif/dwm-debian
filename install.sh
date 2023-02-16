@@ -20,16 +20,16 @@ sudo apt install -y network-manager-gnome
 sudo apt install -y lxappearance 
 
 # File Manager (eg. pcmanfm,krusader)
-sudo apt install -y pcmanfm ranger
+sudo apt install -y thunar
 
 # Network File Tools/System Events
-sudo apt install -y dialog mtools avahi-daemon acpi acpid 
+sudo apt install -y dialog mtools dosfstools avahi-daemon acpi acpid gvfs-backends xfce4-power-manager
 
 sudo systemctl enable avahi-daemon
 sudo systemctl enable acpid
 
 # Terminal (eg. terminator,kitty)
-sudo apt install -y kitty
+sudo apt install -y tilix
 
 # Sound packages
 sudo apt install -y pulseaudio alsa-utils pavucontrol volumeicon-alsa
@@ -59,11 +59,11 @@ sudo apt install -y firefox-esr
 sudo apt install -y nitrogen 
 
 # Packages needed dwm after installation
-sudo apt install -y sxhkd picom numlockx rofi dunst libnotify-bin unzip mousepad scrot
+sudo apt install -y picom numlockx rofi dunst libnotify-bin unzip policykit-1-gnome scrot mousepad
 
 # Command line text editor -- nano preinstalled  -- I like micro but vim is great
-# sudo apt install -y micro
-sudo apt install -y neovim
+sudo apt install -y micro
+# sudo apt install -y neovim
 
 # Install fonts
 sudo apt install fonts-font-awesome fonts-ubuntu fonts-liberation2 fonts-liberation fonts-terminus 
@@ -72,10 +72,21 @@ sudo apt install fonts-font-awesome fonts-ubuntu fonts-liberation2 fonts-liberat
 xdg-user-dirs-update
 
 # Install Lightdm Console Display Manager
-sudo apt install -y lightdm lightdm-gtk-greeter-settings slick-greeter
-sudo systemctl enable lightdm
-echo 'greeter-session=slick-greeter' >>  sudo tee -a /etc/lightdm/lightdm.conf
-echo 'greeter-hide-user=false' >>  sudo tee -a /etc/lightdm/lightdm.conf
+# sudo apt install -y lightdm lightdm-gtk-greeter-settings slick-greeter
+# sudo systemctl enable lightdm
+# echo 'greeter-session=slick-greeter' >>  sudo tee -a /etc/lightdm/lightdm.conf
+# echo 'greeter-hide-user=false' >>  sudo tee -a /etc/lightdm/lightdm.conf
+
+# Ly Console Manager
+# Needed packages
+sudo apt install -y libpam0g-dev libxcb-xkb-dev
+cd 
+git clone --recurse-submodules https://github.com/fairyglade/ly
+cd ly
+make
+sudo make install installsystemd
+sudo systemctl enable ly.service
+
 
 # XSessions and dwm.desktop
 if [[ ! -d /usr/share/xsessions ]]; then
