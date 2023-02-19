@@ -3,7 +3,7 @@
 slstatus &
 nm-applet &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-picom -b  --config ~/.config/picom/picom.conf &
+# picom -b  --config ~/.config/picom/picom.conf &
 # numlockx on &
 volumeicon &
 dunst &
@@ -11,5 +11,5 @@ dunst &
 nitrogen --restore &
 
 #keybindings
-sxhkd -c ~/.config/suckless/dwm/sxhkd/sxhkdrc &
+# sxhkd -c ~/.config/suckless/dwm/sxhkd/sxhkdrc &
 
