@@ -1,5 +1,7 @@
 dwm installion using shell script
+
 works great with Debian Stable
+
 script uses NO patches
 
 ==============================
