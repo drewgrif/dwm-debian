@@ -1,3 +1,7 @@
+# This Installation was ONLY INTENDED FOR DEBIAN BULLSEYE (11) 
+
+**RECOMMENDED: USE THE bookworm-scripts for an updated dwm install.**
+
 dwm installion using shell script
 
 works great with Debian Stable
